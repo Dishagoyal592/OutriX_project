@@ -4,10 +4,14 @@ import numpy as np
 import pickle
 import json
 
-with open("house_price_model.pkl", "rb") as f:
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, "house_price_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-with open("columns.json", "r") as f:
+with open(os.path.join(BASE_DIR, "columns.json"), "r") as f:
     data = json.load(f)
 
 columns = data["data_columns"]
